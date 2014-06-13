@@ -3,8 +3,8 @@ defmodule Redis.Mixfile do
 
   def project do
     [ app: :redis,
-      version: "1.1.1",
-      elixir: "~> 0.13.2",
+      version: "1.1.2",
+      elixir: "~> 0.14.0",
       deps: deps ]
   end
 
@@ -16,8 +16,6 @@ defmodule Redis.Mixfile do
   # Returns the list of dependencies in the format:
   # { :foobar, "~> 0.1", git: "https://github.com/elixir-lang/foobar.git" }
   defp deps do
-    [
-      { :eredis, github: "wooga/eredis", tag: "v1.0.6" }
-    ]
+    [ { :eredis, github: "wooga/eredis", tag: "v1.0.6" } ]
   end
 end

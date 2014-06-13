@@ -1,5 +1,5 @@
 defmodule Redis.Server do
-  use GenServer.Behaviour
+  use GenServer
 
   @type client :: pid
   @type key :: binary | atom
@@ -72,4 +72,3 @@ defmodule Redis.Server do
     client |> :eredis.q(command) |> elem 1
 
 end
-
