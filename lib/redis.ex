@@ -117,12 +117,12 @@ defmodule Redis do
   def expire(pid\\nil, key, value) do
     call_server(pid, {:expire, key, value}) |> int_reply
   end
-  
+
   @spec setex(pid, key, secs, value) :: sts_reply
   def setex(pid \\ nil, key, secs, value) do
     call_server(pid, {:setex, key, secs, value}) |> sts_reply
   end
-  
+
   @spec flushall(pid) :: sts_reply
   def flushall(pid\\nil) do
     call_server(pid, {:flushall}) |> sts_reply
@@ -140,7 +140,7 @@ defmodule Redis do
 
   @spec int_reply(binary) :: integer
   defp int_reply(reply), do:
-    reply |> binary_to_integer
+    reply |> String.to_integer
 
   @spec sts_reply(binary) :: :ok | binary
   defp sts_reply("OK"), do:
